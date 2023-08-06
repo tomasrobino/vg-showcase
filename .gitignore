@@ -1,3 +1,5 @@
+/.vscode
+
 #CLIENT
 
 # dependencies
@@ -21,3 +23,7 @@ client/.env.production.local
 client/npm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*
+
+#API
+
+/api/node_modules

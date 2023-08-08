@@ -10,11 +10,16 @@ client/.pnp.js
 # testing
 /client/coverage
 
+# next.js
+/client/.next/
+/client/out/
+
 # production
 /client/build
 
 # misc
 client/.DS_Store
+client/*.pem
 client/.env.local
 client/.env.development.local
 client/.env.test.local
@@ -23,6 +28,21 @@ client/.env.production.local
 client/npm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*
+
+# debug
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+
+# local env files
+client/.env*.local
+
+# vercel
+client/.vercel
+
+# typescript
+client/*.tsbuildinfo
+client/next-env.d.ts
 
 #API
 

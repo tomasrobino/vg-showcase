@@ -5,27 +5,27 @@ import Image from "next/image"
 
 export default function LargeDisplay() {
     return(
-        <div className="display">
-            <div className="display-content">
-                <div className="display-main">
+        <div className={styles.display}>
+            <div className={styles.displayContent}>
+                <div className={styles.displayMain}>
 
                 </div>
-                <div className="display-secondary">
-                    <div className="display-other-imgs">
+                <div className={styles.displaySecondary}>
+                    <div className={styles.displayOtherImgs}>
 
                     </div>
-                    <div className="display-other-info">
+                    <div className={styles.displayOtherInfo}>
 
                     </div>
                 </div>
             </div>
-            <div className="display-carousel">
+            <div className={styles.displayCarousel}>
 
             </div>
-            <div className="arrow">
+            <div className={styles.arrow}>
 
             </div>
-            <div className="arrow">
+            <div className={styles.arrow}>
 
             </div>
         </div>

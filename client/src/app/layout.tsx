@@ -29,6 +29,7 @@ export default function RootLayout({
             <SearchBar></SearchBar>
             <div className={styles.imageDiv}></div>
           </div>
+          {children}
         </main>
       </body>
     </html>

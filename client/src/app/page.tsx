@@ -3,11 +3,9 @@ import TopButton from './TopButton'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.topBar}>
-        <TopButton {...{text: "Home"}}></TopButton>
-        <TopButton {...{text: "About"}}></TopButton>
-      </div>
-    </main>
+    <div>
+        <h1>Trending</h1>
+        <h1>New Releases</h1>
+    </div>
   )
 }

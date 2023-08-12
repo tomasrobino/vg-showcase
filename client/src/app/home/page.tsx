@@ -1,7 +1,7 @@
 import styles from './page.module.css'
-import TopButton from './TopButton'
+import TopButton from '../TopButton'
 
-export default function Home() {
+export default function Page() {
   return (
     <main className={styles.main}>
       <div className={styles.topBar}>

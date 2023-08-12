@@ -1,6 +1,9 @@
 import './globals.css'
+import styles from './page.module.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import TopButton from './TopButton'
+import SearchBar from './SearchBar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +19,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className={styles.main}>
+          <div className={styles.topBar}>
+            <div className={styles.buttonDiv}>
+              <TopButton {...{text: "Home", action: "switchHome"}}></TopButton>
+              <TopButton {...{text: "About", action: "switchAbout"}}></TopButton>
+            </div>
+            <SearchBar></SearchBar>
+            <div className={styles.imageDiv}></div>
+          </div>
+        </main>
+      </body>
     </html>
   )
 }

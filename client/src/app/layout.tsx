@@ -19,18 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className={styles.main}>
-          <div className={styles.topBar}>
-            <div className={styles.buttonDiv}>
-              <TopButton {...{text: "Home", action: "switchHome"}}></TopButton>
-              <TopButton {...{text: "About", action: "switchAbout"}}></TopButton>
-            </div>
-            <SearchBar></SearchBar>
-            <div className={styles.imageDiv}></div>
+      <body className={`${inter.className} ${styles.body}`}>
+        <div className={styles.topBar}>
+          <div className={styles.buttonDiv}>
+            <TopButton {...{text: "Home", action: "switchHome"}}></TopButton>
+            <TopButton {...{text: "About", action: "switchAbout"}}></TopButton>
           </div>
-          {children}
-        </main>
+          <SearchBar></SearchBar>
+          <div className={styles.imageDiv}></div>
+        </div>
+        {children}
       </body>
     </html>
   )

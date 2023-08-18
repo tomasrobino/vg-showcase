@@ -1,31 +1,68 @@
 .display {
-
+    display: grid;
+    width: 1000px;
+    height: 400px;
+    grid-template-columns: 100px 800px 100px;
+    grid-template-rows: 350px 50px;
 }
 
 .displayContent {
-
+    display: flex;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
 .displayMain {
-
+    width: 500px;
 }
 
 .displaySecondary {
-
+    width: 300px;
 }
 
 .displayOtherImgs {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
+.secImg {
+    margin: 10px;
 }
 
 .displayOtherInfo {
 
 }
 
-.displayCarousel {
+.carousel {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    
+    display: flex;
+    justify-content: center;
+}
 
+.carouselButton {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
 }
 
 .arrow {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.icon {
+}
+
+.rightIcon {
+    transform: rotate(180deg);
 }

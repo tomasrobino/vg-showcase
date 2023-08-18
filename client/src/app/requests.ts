@@ -29,8 +29,7 @@ export async function getNewest() {
         key: "365861aa44ed48888609ad4668f3e3e2"
       }
     })
-    //console.log(response.data.results);
-    return response.data.results;
+    return response;
   } catch (error) {
     console.error(error);
   }

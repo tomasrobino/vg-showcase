@@ -6,7 +6,7 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 
-export default function LargeDisplay() {
+export default function LargeDisplay(props: {toDisplay: Array<any>}) {
     //Since current item is the same as selected carousel, use this very state for both
     const [currentItem, setCurrentItem] = useState(0);
 
@@ -20,16 +20,15 @@ export default function LargeDisplay() {
         squareColors.push({color: color, setColor: setColor})
     }
 
-    const items: Array<{main: string, secondaries: Array<string>}> = [
-        {
-            main: "https://picsum.photos/500/300",
-            secondaries: ["https://picsum.photos/50/50","https://picsum.photos/50/50","https://picsum.photos/50/50","https://picsum.photos/50/50"]
-        },
-        {
-            main: "https://picsum.photos/500/350",
-            secondaries: ["https://picsum.photos/100/100","https://picsum.photos/50/50","https://picsum.photos/50/50","https://picsum.photos/50/50"]
-        }
-    ];
+    const items: Array<{main: string, secondaries: Array<string>}> = [];
+    for (let i = 0; i < 10; i++) {
+        items.push({
+            main: props.toDisplay[i].background_image,
+            secondaries: [props.toDisplay[i].background_image,props.toDisplay[i].background_image,props.toDisplay[i].background_image,props.toDisplay[i].background_image]
+        })
+    }
+
+    console.log(items);
     const [shownImg, setShownImg] = useState(items[currentItem].main);
 
     const boxArray: Array<JSX.Element> = [];
@@ -68,7 +67,7 @@ export default function LargeDisplay() {
         if (dir === 0) {
             if (currentItem === 0) {
                 //Go to last item
-                updateSelectedCarousel(items.length)
+                updateSelectedCarousel(items.length-1)
             } else {
                 //Move leftward
                 setCurrentItem(currentItem-1);

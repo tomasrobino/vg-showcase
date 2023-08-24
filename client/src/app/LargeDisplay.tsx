@@ -6,7 +6,7 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 
-export default function LargeDisplay(props: {toDisplay: Array<any>}) {
+export default function LargeDisplay(props: {toDisplay: Array<Array<{image: string}>>}) {
     //Since current item is the same as selected carousel, use this very state for both
     const [currentItem, setCurrentItem] = useState(0);
 
@@ -21,14 +21,13 @@ export default function LargeDisplay(props: {toDisplay: Array<any>}) {
     }
 
     const items: Array<{main: string, secondaries: Array<string>}> = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 2; i < 10; i++) {
         items.push({
-            main: props.toDisplay[i].background_image,
-            secondaries: [props.toDisplay[i].background_image,props.toDisplay[i].background_image,props.toDisplay[i].background_image,props.toDisplay[i].background_image]
+            main: props.toDisplay[i][0].image,
+            secondaries: [props.toDisplay[i][1].image, props.toDisplay[i][2].image, props.toDisplay[i][3].image, props.toDisplay[i][4].image]
         })
     }
 
-    console.log(items);
     const [shownImg, setShownImg] = useState(items[currentItem].main);
 
     const boxArray: Array<JSX.Element> = [];

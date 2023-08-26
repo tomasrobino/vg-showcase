@@ -59,7 +59,7 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<toDisplayInfo>
             <Image
                 key={"secImg"+i}
                 src={items[currentItem].secondaries[i]}
-                width={100}
+                width={150}
                 height={100}
                 className={styles.secImg}
                 alt=""
@@ -134,7 +134,7 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<toDisplayInfo>
             <Card
                 className={styles.displayContent}
                 sx={{
-                    width: 800,
+                    width: 900,
                     height: 1,
                     backgroundColor: "red"
                 }}
@@ -142,12 +142,13 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<toDisplayInfo>
                 <div className={styles.displayMain}>
                     <Image
                         src={shownImg}
-                        width={500}
+                        width={550}
                         height={350}
                         alt=""
                     />
                 </div>
                 <div className={styles.displaySecondary}>
+                    <h3>{props.toDisplayInfo[currentItem].name}</h3>
                     <div className={styles.displayOtherImgs}>
                         {secImgsArray}
                     </div>

@@ -1,23 +1,25 @@
 .display {
+    align-items: center;
     display: grid;
     width: 1000px;
     height: 400px;
-    grid-template-columns: 100px 800px 100px;
+    grid-template-columns: 50px 900px 50px;
     grid-template-rows: 350px 50px;
 }
 
 .displayContent {
+    width: 100%;
     display: flex;
     grid-column-start: 2;
     grid-column-end: 3;
 }
 
 .displayMain {
-    width: 500px;
+    width: 550px;
 }
 
 .displaySecondary {
-    width: 300px;
+    width: 350px;
 }
 
 .displayOtherImgs {
@@ -30,7 +32,6 @@
 }
 
 .secImg {
-    margin: 10px;
 }
 
 .displayOtherInfo {
@@ -54,6 +55,7 @@
 }
 
 .arrow {
+    height: 100px;
     background-color: blue;
     display: flex;
     justify-content: center;

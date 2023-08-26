@@ -1,12 +1,14 @@
 "use client"
 
-import { Box, Button, Card } from "@mui/material"
+import { Box, Card } from "@mui/material"
 import styles from "./largeDisplay.module.css"
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
+import { toDisplayInfo } from "./page";
 
-export default function LargeDisplay(props: {toDisplay: Array<Array<{image: string}>>}) {
+
+export default function LargeDisplay(props: {toDisplayInfo: Array<toDisplayInfo>}) {
     //Since current item is the same as selected carousel, use this very state for both
     const [currentItem, setCurrentItem] = useState(0);
 
@@ -15,23 +17,28 @@ export default function LargeDisplay(props: {toDisplay: Array<Array<{image: stri
         let [color, setColor] = useState("lime");
         squareColors.push({color: color, setColor: setColor})
     }
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < props.toDisplayInfo.length; i++) {
         let [color, setColor] = useState("green");
         squareColors.push({color: color, setColor: setColor})
     }
 
     const items: Array<{main: string, secondaries: Array<string>}> = [];
-    for (let i = 2; i < 10; i++) {
+    for (let i = 0; i < props.toDisplayInfo.length; i++) {
         items.push({
-            main: props.toDisplay[i][0].image,
-            secondaries: [props.toDisplay[i][1].image, props.toDisplay[i][2].image, props.toDisplay[i][3].image, props.toDisplay[i][4].image]
+            main: props.toDisplayInfo[i].short_screenshots[0].image,
+            secondaries: [
+                props.toDisplayInfo[i].short_screenshots[1].image,
+                props.toDisplayInfo[i].short_screenshots[2].image,
+                props.toDisplayInfo[i].short_screenshots[3].image,
+                props.toDisplayInfo[i].short_screenshots[4].image
+            ]
         })
     }
 
     const [shownImg, setShownImg] = useState(items[currentItem].main);
 
     const boxArray: Array<JSX.Element> = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < props.toDisplayInfo.length; i++) {
         boxArray.push(
             <Box
                 className={styles.carouselButton}

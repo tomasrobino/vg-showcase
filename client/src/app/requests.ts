@@ -1,28 +1,29 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 
 export async function getTopRated() {
   try {
-    const top = await axios.get('https://api.rawg.io/api/games', {
+    return await axios.get('https://api.rawg.io/api/games', {
       params: {
         ordering: "-metacritic",
         page: 1,
-        page_size: 10,
+        page_size: 15,
         exclude_additions: true,
         key: "365861aa44ed48888609ad4668f3e3e2"
       }
-    })
-    const topImgs = [];
-    for (let i = 0; i < 10; i++) {
-      topImgs.push(await axios.get(`https://api.rawg.io/api/games/${top.data.results[i].slug}/screenshots`, {
-        params: {
-          page: 1,
-          page_size: 5,
-          key: "365861aa44ed48888609ad4668f3e3e2"
+    }).then(res => {
+      const aux = structuredClone(res.data.results);
+      for (let i = 0; i < aux.length; i++) {
+        if (aux[i].short_screenshots.length === 0) {
+          aux.splice(i, 1);
         }
-      }));
-    }
-    return topImgs;
+        if (i > 9) {
+          aux.splice(10);
+        }
+      }
+      
+      return aux;
+    })
   } catch (error) {
     console.error(error);
   }

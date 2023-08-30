@@ -1,17 +1,16 @@
 "use client"
 
 import { Button } from "@mui/material";
+import { useRouter } from "next/navigation";
 
-export default function TopButton(props: {text: string, action: string}) {
+export default function TopButton(props: {text: string, url: string, linkTo: string}) {
+    const router = useRouter();
+
     return (
         <Button
-            onClick={handleClick}
+            onClick={() => {router.replace(props.url+props.linkTo)}}
         >
             {props.text}
         </Button>
     )
-}
-
-function handleClick() {
-    
 }

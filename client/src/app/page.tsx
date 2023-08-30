@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 import LargeDisplay from './LargeDisplay'
 import styles from './page.module.css'
-import { getNewest, getTopRated } from './requests';
+import { getTopRated } from './requests';
 
 export type toDisplayInfo = AxiosResponse<any, any> & {
   id:                 number;

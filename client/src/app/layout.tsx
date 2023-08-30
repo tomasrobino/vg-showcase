@@ -22,8 +22,8 @@ export default function RootLayout({
       <body className={`${inter.className} ${styles.body}`}>
         <div className={styles.topBar}>
           <div className={styles.buttonDiv}>
-            <TopButton {...{text: "Home", action: "switchHome"}}></TopButton>
-            <TopButton {...{text: "About", action: "switchAbout"}}></TopButton>
+            <TopButton {...{text: "Home", url: process.env.URL as string, linkTo: ""}}></TopButton>
+            <TopButton {...{text: "About", url: process.env.URL as string, linkTo: "about"}}></TopButton>
           </div>
           <SearchBar></SearchBar>
           <div className={styles.imageDiv}></div>

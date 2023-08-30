@@ -23,6 +23,7 @@ export default function RootLayout({
         <div className={styles.topBar}>
           <div className={styles.buttonDiv}>
             <TopButton {...{text: "Home", url: process.env.URL as string, linkTo: ""}}></TopButton>
+            <TopButton {...{text: "Browse", url: process.env.URL as string, linkTo: "browse"}}></TopButton>
             <TopButton {...{text: "About", url: process.env.URL as string, linkTo: "about"}}></TopButton>
           </div>
           <SearchBar></SearchBar>

@@ -148,7 +148,9 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<toDisplayInfo>
                     />
                 </div>
                 <div className={styles.displaySecondary}>
-                    <h3>{props.toDisplayInfo[currentItem].name}</h3>
+                    <div className={styles.displayTitle}>
+                        <p>{props.toDisplayInfo[currentItem].name}</p>
+                    </div>
                     <div className={styles.displayOtherImgs}>
                         {secImgsArray}
                     </div>

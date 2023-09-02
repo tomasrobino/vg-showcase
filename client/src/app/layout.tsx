@@ -22,11 +22,11 @@ export default function RootLayout({
       <body className={`${inter.className} ${styles.body}`}>
         <div className={styles.topBar}>
           <div className={styles.buttonDiv}>
-            <TopButton {...{text: "Home", url: process.env.URL as string, linkTo: ""}}></TopButton>
-            <TopButton {...{text: "Browse", url: process.env.URL as string, linkTo: "browse"}}></TopButton>
-            <TopButton {...{text: "About", url: process.env.URL as string, linkTo: "about"}}></TopButton>
+            <TopButton {...{text: "Home", url: process.env.URL!, linkTo: ""}}></TopButton>
+            <TopButton {...{text: "Browse", url: process.env.URL!, linkTo: "browse"}}></TopButton>
+            <TopButton {...{text: "About", url: process.env.URL!, linkTo: "about"}}></TopButton>
           </div>
-          <SearchBar></SearchBar>
+          <SearchBar/>
           <div className={styles.imageDiv}></div>
         </div>
         {children}

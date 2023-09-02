@@ -5,10 +5,10 @@ import styles from "./largeDisplay.module.css"
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
-import { toDisplayInfo } from "./page";
+import { gameResponse } from "./types";
 
 
-export default function LargeDisplay(props: {toDisplayInfo: Array<toDisplayInfo>}) {
+export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}) {
     //Since current item is the same as selected carousel, use this very state for both
     const [currentItem, setCurrentItem] = useState(0);
 

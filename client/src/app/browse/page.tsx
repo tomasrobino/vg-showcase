@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import SearchResults from "./SearchResults";
 import getResults from "./request";
 import { gameResponse } from "../types";
-
+import styles from "./results.module.css"
 
 export default async function Page({
     searchParams
@@ -12,8 +12,10 @@ export default async function Page({
     const response: gameResponse[]= await getResults({search: searchParams.search as string}) as gameResponse[];
 
     return(
-        <Suspense>
-            <SearchResults {...{results: response}}/>
-        </Suspense>
+        <div className={styles.searchResults}>
+            <Suspense>
+                <SearchResults {...{results: response}}/>
+            </Suspense>
+        </div>
     )
 }

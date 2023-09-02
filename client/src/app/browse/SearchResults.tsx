@@ -1,12 +1,15 @@
 "use client"
 
-import { useSearchParams } from "next/navigation"
 
-export default function SearchResults() {
-    const search = useSearchParams();
-    console.log(search.get("search"));
+import { gameResponse } from "../types"
+
+
+export default function SearchResults(props: {results: gameResponse[]}) {
+    //const search = useSearchParams();
+    //console.log(useSearchParams().get("search"));
+    console.log(props.results[0].name)
 
     return(
-        <p>dsflisdbfudslui</p>
+        <p>{props.results[0].name}</p>
     )
 }

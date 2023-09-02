@@ -24,6 +24,16 @@
   margin-left: auto;
 }
 
+.sideBarAndMain {
+  display: flex;
+}
+
+.sideBar {
+  width: 250px;
+  background-color: yellow;
+  height: 100vh;
+}
+
 .page {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,6 @@
 import axios from "axios";
-//import { useSearchParams } from "next/navigation";
 
 export default async function getResults(props: {search: string}) {
-    //const search = useSearchParams().get("search");
     try {
         return await axios.get('https://api.rawg.io/api/games', {
             params: {

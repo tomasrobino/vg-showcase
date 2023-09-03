@@ -25,6 +25,7 @@ export default function SearchBar() {
             label="Search"
             type="text"
             size='small'
+            autoComplete='off'
             onChange={handleChange}
             onKeyUp={handleEnter}
             sx={{

@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import SearchResults from "./SearchResults";
 import getResults from "./request";
 import { gameResponse } from "../types";
@@ -9,13 +8,11 @@ export default async function Page({
   }: {
     searchParams: { [key: string]: string | string[] | undefined }
   }) {
-    const response: gameResponse[]= await getResults({search: searchParams.search as string}) as gameResponse[];
+    const response: gameResponse[] = await getResults({search: searchParams.search as string, page: 1}) as gameResponse[];
 
     return(
         <div className={styles.searchResults}>
-            <Suspense>
-                <SearchResults {...{results: response}}/>
-            </Suspense>
+            <SearchResults {...{results: response}}/>
         </div>
     )
 }

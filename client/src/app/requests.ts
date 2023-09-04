@@ -9,7 +9,7 @@ export async function getTopRated() {
         page: 1,
         page_size: 15,
         exclude_additions: true,
-        key: "365861aa44ed48888609ad4668f3e3e2"
+        key: process.env.KEY!
       }
     }).then(res => {
       const aux = structuredClone(res.data.results);
@@ -37,7 +37,7 @@ export async function getNewest() {
         page: 1,
         page_size: 10,
         exclude_additions: true,
-        key: "365861aa44ed48888609ad4668f3e3e2"
+        key: process.env.KEY!
       }
     })
     return response;

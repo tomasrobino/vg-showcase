@@ -7,7 +7,7 @@ export default async function getResults(props: {search: string, page: number}) 
                 page: props.page,
                 page_size: 39,
                 search: props.search,
-                key: "365861aa44ed48888609ad4668f3e3e2"
+                key: process.env.KEY!
             }
         }).then(res => {
             return res.data.results;

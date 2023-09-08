@@ -1,8 +1,7 @@
 import SearchResults from "./SearchResults";
 import getResults from "./request";
-import { gameResponse } from "../types";
 import styles from "./results.module.css"
-import PagePasser from "./PagePasser";
+import PagePasser from "../PagePasser";
 
 export default async function Page({
     searchParams
@@ -14,7 +13,7 @@ export default async function Page({
     return(
         <div className={styles.searchResults}>
             <SearchResults {...{results: response.results}}/>
-            <PagePasser {...{next: response.next, prev: response.prev}} />
+            <PagePasser {...{next: response.next, prev: response.previous, toList: "search="+searchParams.search }} />
         </div>
     )
 }

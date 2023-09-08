@@ -35,9 +35,8 @@ export default function PagePasser(props: {next: string, prev: string}) {
 
     function passPage() {
         router.push(`${pathname}?search=${params.get("search")}&page=${(parseInt(params.get("page")!)+1).toString()}`)
-        console.log(nextRef.current);
         if (nextRef.current===null) {
-            setNextDisabled(false);
+            setNextDisabled(true);
         }
         if(backDisabled===true) {
             setBackDisabled(false);

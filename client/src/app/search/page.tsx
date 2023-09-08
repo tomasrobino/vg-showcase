@@ -9,12 +9,12 @@ export default async function Page({
   }: {
     searchParams: { [key: string]: string | string[] | undefined }
   }) {
-    const response: gameResponse[] = await getResults({search: searchParams.search as string, page: parseInt(searchParams.page as string)}) as gameResponse[];
+    const response = await getResults({search: searchParams.search as string, page: parseInt(searchParams.page as string)});
 
     return(
         <div className={styles.searchResults}>
-            <SearchResults {...{results: response}}/>
-            <PagePasser/>
+            <SearchResults {...{results: response.results}}/>
+            <PagePasser {...{next: response.next, prev: response.prev}} />
         </div>
     )
 }

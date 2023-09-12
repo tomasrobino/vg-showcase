@@ -60,7 +60,7 @@ export type gameDetails = {
     website: string;
     rating: number;
     rating_top: number;
-    ratings: {};
+    ratings: ({id: number, title: string, count: number, percent: number})[];
     reactions: {};
     added: number;
     added_by_status: {};

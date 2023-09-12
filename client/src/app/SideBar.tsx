@@ -1,45 +1,52 @@
-"use-client"
+"use client"
 
 import { Button, Typography } from "@mui/material"
 import styles from "./sideBar.module.css"
+import { useRouter } from "next/navigation"
 
 export default function SideBar() {
+    const router = useRouter();
+
+    function handleClick(route: string) {
+        router.push(`lists/${route}?page=1`);
+    }
+
     return (
         <div className={styles.sideBar}>
             <Typography className={styles.title}>New Releases</Typography>
             <div className={styles.group}>
-                <Button className={styles.element}>Last 30 Days</Button>
-                <Button className={styles.element}>This week</Button>
-                <Button className={styles.element}>Next week</Button>
-                <Button className={styles.element}>Release calendar</Button>
+                <Button className={styles.element} onClick={() => {handleClick("new/30Days")}}>Last 30 Days</Button>
+                <Button className={styles.element} onClick={() => {handleClick("new/past")}}>This week</Button>
+                <Button className={styles.element} onClick={() => {handleClick("new/next")}}>Next week</Button>
+                <Button className={styles.element} onClick={() => {handleClick("new/calendar")}}>Release calendar</Button>
             </div>
 
             <Typography className={styles.title}>Top</Typography>
             <div className={styles.group}>
-                <Button className={styles.element}>Best of the year</Button>
-                <Button className={styles.element}>All time top 250</Button>
+                <Button className={styles.element} onClick={() => {handleClick("top/year")}}>Best of the year</Button>
+                <Button className={styles.element} onClick={() => {handleClick("top/top250")}}>All time top 250</Button>
             </div>
 
-            <Button className={styles.title}>Genre</Button>
+            <Button className={styles.title} onClick={() => {handleClick("genre")}}>Genres</Button>
             <div className={styles.group}>
-                <Button className={styles.element}>Action</Button>
-                <Button className={styles.element}>Strategy</Button>
-                <Button className={styles.element}>RPG</Button>
-                <Button className={styles.element}>Shooter</Button>
-                <Button className={styles.element}>Adventure</Button>
-                <Button className={styles.element}>Puzzle</Button>
-                <Button className={styles.element}>Racing</Button>
-                <Button className={styles.element}>Sports</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/action")}}>Action</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/strategy")}}>Strategy</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/rpg")}}>RPG</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/shooter")}}>Shooter</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/adventure")}}>Adventure</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/puzzle")}}>Puzzle</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/racing")}}>Racing</Button>
+                <Button className={styles.element} onClick={() => {handleClick("genre/sports")}}>Sports</Button>
             </div>
 
             <Button className={styles.title}>Platforms</Button>
             <div className={styles.group}>
-                <Button className={styles.element}>PC</Button>
-                <Button className={styles.element}>PlayStation 4</Button>
-                <Button className={styles.element}>Xbox One</Button>
-                <Button className={styles.element}>Nintendo Switch</Button>
-                <Button className={styles.element}>iOS</Button>
-                <Button className={styles.element}>Android</Button>
+                <Button className={styles.element} onClick={() => {handleClick("platform/pc")}}>PC</Button>
+                <Button className={styles.element} onClick={() => {handleClick("platform/playstation4")}}>PlayStation 4</Button>
+                <Button className={styles.element} onClick={() => {handleClick("platform/xboxone")}}>Xbox One</Button>
+                <Button className={styles.element} onClick={() => {handleClick("platform/switch")}}>Nintendo Switch</Button>
+                <Button className={styles.element} onClick={() => {handleClick("platform/ios")}}>iOS</Button>
+                <Button className={styles.element} onClick={() => {handleClick("platform/android")}}>Android</Button>
             </div>
         </div>
     )

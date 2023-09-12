@@ -1,7 +1,7 @@
 import SearchResults from "./SearchResults";
 import getResults from "./request";
 import styles from "./results.module.css"
-import PagePasser from "../PagePasser";
+import PagePasser from "../../PagePasser";
 
 export default async function Page({
     searchParams

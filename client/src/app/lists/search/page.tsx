@@ -1,7 +1,5 @@
-import Results from "../Results";
 import getResults from "./request";
-import styles from "../results.module.css"
-import PagePasser from "../../PagePasser";
+import ResultsAndPasser from "../ResultsAndPasser";
 
 export default async function Page({
     searchParams
@@ -11,9 +9,6 @@ export default async function Page({
     const response = await getResults({search: searchParams.search as string, page: parseInt(searchParams.page as string)});
 
     return(
-        <div className={styles.results}>
-            <Results {...{results: response.results}}/>
-            <PagePasser {...{next: response.next, prev: response.previous, toList: "search="+searchParams.search }} />
-        </div>
+        <ResultsAndPasser {...{response: response, ifSearch: "search="+searchParams.search}}/>
     )
 }

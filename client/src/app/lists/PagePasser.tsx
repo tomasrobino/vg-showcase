@@ -4,7 +4,7 @@ import { Button } from "@mui/material"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
-export default function PagePasser(props: {next: string, prev: string, toList: string}) {
+export default function PagePasser(props: {next: string, prev: string, ifSearch: string}) {
     const router = useRouter()
     const pathname = usePathname();
     const params = useSearchParams();
@@ -37,10 +37,10 @@ export default function PagePasser(props: {next: string, prev: string, toList: s
         }
     }, [props.prev, props.next]);
 
-    if (props.toList === "") {
+    if (props.ifSearch === "") {
         var aux: string = "page="
     } else {
-        var aux: string = props.toList+"&page="
+        var aux: string = props.ifSearch+"&page="
     }
 
     function goBackPage() {

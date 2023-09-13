@@ -1,12 +1,12 @@
 "use client"
 
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
-import { gameResponse } from "../../types"
+import { gameResponse } from "../types"
 import { useRouter } from "next/navigation";
 import React from "react";
 
 
-export default function SearchResults(props: {results: gameResponse[]}) {
+export default function Results(props: {results: gameResponse[]}) {
     const router = useRouter();
 
     function handleClick(slug: string) {

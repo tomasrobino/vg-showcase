@@ -2,7 +2,7 @@
 
 import { Button } from "@mui/material"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function PagePasser(props: {next: string, prev: string, toList: string}) {
     const router = useRouter()
@@ -24,24 +24,31 @@ export default function PagePasser(props: {next: string, prev: string, toList: s
         } else return false;
     })
 
-    function goBackPage() {
-        router.push(`${pathname}?${props.toList}&page=${(parseInt(params.get("page")!)-1).toString()}`);
-        if(prevRef.current===null) {
-            setBackDisabled(true);
-        }
-        if(nextDisabled===true) {
+    useEffect(() => {
+        if (props.next===null) {
+            setNextDisabled(true);
+        } else {
             setNextDisabled(false);
         }
+        if (props.prev===null) {
+            setBackDisabled(true);
+        } else {
+            setBackDisabled(false);
+        }
+    }, [props.prev, props.next]);
+
+    if (props.toList === "") {
+        var aux: string = "page="
+    } else {
+        var aux: string = props.toList+"&page="
+    }
+
+    function goBackPage() {
+        router.push(`${pathname}?${aux}${(parseInt(params.get("page")!)-1).toString()}`);
     }
 
     function passPage() {
-        router.push(`${pathname}?${props.toList}&page=${(parseInt(params.get("page")!)+1).toString()}`);
-        if (nextRef.current===null) {
-            setNextDisabled(true);
-        }
-        if(backDisabled===true) {
-            setBackDisabled(false);
-        }
+        router.push(`${pathname}?${aux}${(parseInt(params.get("page")!)+1).toString()}`);
     }
 
     return(

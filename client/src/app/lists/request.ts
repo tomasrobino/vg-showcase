@@ -2,13 +2,14 @@ import axios from "axios";
 
 export default async function getResults(props: {search: string, page: number}) {
     try {
+        const params = {
+            page_size: 39,
+            key: process.env.KEY!
+        }
+        Object.assign(params, props);
+
         return await axios.get('https://api.rawg.io/api/games', {
-            params: {
-                page: props.page,
-                page_size: 39,
-                search: props.search,
-                key: process.env.KEY!
-            }
+            params: params
         }).then(res => {
             return res.data;
         })

@@ -1,8 +1,6 @@
-import { AxiosResponse } from "axios";
-import { gameResponse } from "../types";
 import PagePasser from "./PagePasser";
 import Results from "./Results";
-import styles from "../results.module.css"
+import styles from "./results.module.css"
 
 export default function ResultsAndPasser(props: {response: any, ifSearch: string}) {
     return(

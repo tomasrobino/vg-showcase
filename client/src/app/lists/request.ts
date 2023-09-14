@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function getResults(props: {search: string, page: number}) {
+export default async function getResults(props: object) {
     try {
         const params = {
             page_size: 39,

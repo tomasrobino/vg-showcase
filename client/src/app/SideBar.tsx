@@ -8,14 +8,18 @@ export default function SideBar() {
     const router = useRouter();
 
     function handleClick(route: string) {
-        router.push(`lists/${route}?page=1`);
+        router.push(`results?page=1&${route}`);
     }
 
     return (
         <div className={styles.sideBar}>
             <Typography className={styles.title}>New Releases</Typography>
             <div className={styles.group}>
-                <Button className={styles.element} onClick={() => {handleClick("new/30Days")}}>Last 30 Days</Button>
+                <Button className={styles.element} onClick={() => {
+                    const today = new Date();
+                    const monthAgo = new Date(today.getTime() - 2629800000);
+                    handleClick(`dates=${monthAgo.getFullYear()}-${("0"+monthAgo.getMonth()).slice(-2)}-${("0"+monthAgo.getDate()).slice(-2)},${today.getFullYear()}-${("0"+today.getMonth()).slice(-2)}-${("0"+today.getDate()).slice(-2)}&ordering=released`);
+                }}>Last 30 Days</Button>
                 <Button className={styles.element} onClick={() => {handleClick("new/past")}}>This week</Button>
                 <Button className={styles.element} onClick={() => {handleClick("new/next")}}>Next week</Button>
                 <Button className={styles.element} onClick={() => {handleClick("new/calendar")}}>Release calendar</Button>

@@ -4,7 +4,7 @@ import { Button } from "@mui/material"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
-export default function PagePasser(props: {next: string, prev: string, ifSearch: string}) {
+export default function PagePasser(props: {next: string, prev: string}) {
     const router = useRouter()
     const pathname = usePathname();
     const params = useSearchParams();
@@ -37,19 +37,27 @@ export default function PagePasser(props: {next: string, prev: string, ifSearch:
         }
     }, [props.prev, props.next]);
 
+    /*
     if (props.ifSearch === "") {
         var aux: string = "page="
     } else {
         var aux: string = props.ifSearch+"&page="
     }
-
+    */
     function goBackPage() {
-        router.push(`${pathname}?${aux}${(parseInt(params.get("page")!)-1).toString()}`);
+        let paramsToUse = params.toString();
+        let substring = paramsToUse.substring(5, paramsToUse.indexOf("&"));
+        router.push(`${pathname}?${paramsToUse.replace(substring, (parseInt(substring) - 1).toString())}`);
+
     }
 
     function passPage() {
-        router.push(`${pathname}?${aux}${(parseInt(params.get("page")!)+1).toString()}`);
+        let paramsToUse = params.toString();
+        let substring = paramsToUse.substring(5, paramsToUse.indexOf("&"));
+        router.push(`${pathname}?${paramsToUse.replace(substring, (parseInt(substring) + 1).toString())}`);
     }
+
+    
 
     return(
         <div>
@@ -67,4 +75,4 @@ export default function PagePasser(props: {next: string, prev: string, ifSearch:
             </Button>
         </div>
     )
-}
+} 

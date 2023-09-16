@@ -1,5 +1,6 @@
-import ResultsAndPasser from "../lists/ResultsAndPasser";
-import getResults from "../lists/request";
+import ResultsAndPasser from "./ResultsAndPasser";
+import getResults from "./request";
+
 
 export default async function Page({
     searchParams

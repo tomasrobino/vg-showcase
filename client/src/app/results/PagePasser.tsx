@@ -44,17 +44,25 @@ export default function PagePasser(props: {next: string, prev: string}) {
         var aux: string = props.ifSearch+"&page="
     }
     */
-    function goBackPage() {
-        let paramsToUse = params.toString();
-        let substring = paramsToUse.substring(5, paramsToUse.indexOf("&"));
-        router.push(`${pathname}?${paramsToUse.replace(substring, (parseInt(substring) - 1).toString())}`);
 
+    function generalPass() {
+        let paramsToUse = params.toString();
+        let aux = paramsToUse.indexOf("&", 6);
+        if (aux === -1) {
+            aux = paramsToUse.length+1;
+        }
+        let substring = paramsToUse.substring(5, aux);
+        return {paramsToUse, substring};
+    }
+
+    function goBackPage() {
+        let gen = generalPass();
+        router.push(`${pathname}?${gen.paramsToUse.replace(gen.substring, (parseInt(gen.substring) - 1).toString())}`);
     }
 
     function passPage() {
-        let paramsToUse = params.toString();
-        let substring = paramsToUse.substring(5, paramsToUse.indexOf("&"));
-        router.push(`${pathname}?${paramsToUse.replace(substring, (parseInt(substring) + 1).toString())}`);
+        let gen = generalPass();
+        router.push(`${pathname}?${gen.paramsToUse.replace(gen.substring, (parseInt(gen.substring) + 1).toString())}`);
     }
 
     

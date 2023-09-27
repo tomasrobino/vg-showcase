@@ -61,7 +61,7 @@ export default function SideBar() {
                 <Button className={styles.element} onClick={() => {handleGenre("sports")}}>Sports</Button>
             </div>
 
-            <Button className={styles.title}>Platforms</Button>
+            <Button className={styles.title} onClick={() => {router.push("platforms?page=1")}}>Platforms</Button>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {handlePlatform("4")}}>PC</Button>
                 <Button className={styles.element} onClick={() => {handlePlatform("187")}}>PlayStation 5</Button>

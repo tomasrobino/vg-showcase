@@ -1,6 +1,6 @@
 import LargeDisplay from './LargeDisplay'
 import styles from './page.module.css'
-import { getTopRated } from './requests';
+import { getTopRated } from './displayRequests';
 import { gameResponse } from './types';
 
 

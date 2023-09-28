@@ -6,19 +6,23 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 import { Dispatch, SetStateAction, useState } from "react";
 import Image from "next/image";
 import { gameResponse } from "./types";
-
+import theme from "./theme";
 
 export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}) {
+    let tyrianPurple = theme.palette.primary.main;
+    let paynesGray = theme.palette.secondary.main;
+    let powderBlue = theme.palette.secondary.light
+
     //Since current item is the same as selected carousel, use this very state for both
     const [currentItem, setCurrentItem] = useState(0);
 
     const squareColors: Array<{color: string, setColor: Dispatch<SetStateAction<string>>}> = [];
     {
-        let [color, setColor] = useState("lime");
+        let [color, setColor] = useState(tyrianPurple);
         squareColors.push({color: color, setColor: setColor})
     }
     for (let i = 1; i < props.toDisplayInfo.length; i++) {
-        let [color, setColor] = useState("green");
+        let [color, setColor] = useState(paynesGray);
         squareColors.push({color: color, setColor: setColor})
     }
 
@@ -96,11 +100,11 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}
     
     function handleCarouselHover(color: string, index: number) {
         //Change color
-        if (color !== "lime") {
-            if(color === "green") {
-                squareColors[index].setColor("lightgreen");
-            } else if(color === "lightgreen") {
-                squareColors[index].setColor("green");
+        if (color !== tyrianPurple) {
+            if(color === paynesGray) {
+                squareColors[index].setColor(powderBlue);
+            } else if(color === powderBlue) {
+                squareColors[index].setColor(paynesGray);
             }
         }
     }
@@ -120,9 +124,9 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}
 
     //Handles switching carousel items
     function updateSelectedCarousel(newSel: number) {
-        squareColors[currentItem].setColor("green")
+        squareColors[currentItem].setColor(paynesGray)
         setCurrentItem(newSel);
-        squareColors[newSel].setColor("lime");
+        squareColors[newSel].setColor(tyrianPurple);
         setShownImg(items[newSel].main);
     }
 

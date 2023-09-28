@@ -1,4 +1,4 @@
-@value indigoDye, jungleGreen, paynesGray, powderBlue, tyrianPurple  from "./colors.css";
+@value indigoDye, jungleGreen, paynesGray, powderBlue, tyrianPurple  from "./colors.module.css";
 
 .display {
     align-items: center;

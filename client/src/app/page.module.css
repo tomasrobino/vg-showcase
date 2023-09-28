@@ -1,3 +1,5 @@
+@value indigoDye, jungleGreen, paynesGray, powderBlue, tyrianPurple  from "./colors.css";
+
 .body {
   height: fit-content;
 }
@@ -9,7 +11,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: red;
   height: 60px;
 }
 
@@ -26,6 +27,7 @@
 
 .sideBarAndMain {
   display: flex;
+  background-color: indigoDye;
 }
 
 

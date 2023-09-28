@@ -1,3 +1,5 @@
+@value indigoDye, jungleGreen, paynesGray, powderBlue, tyrianPurple  from "./colors.css";
+
 .display {
     align-items: center;
     display: grid;
@@ -63,7 +65,8 @@
 
 .arrow {
     height: 100px;
-    background-color: blue;
+    margin: 5px;
+    background-color: tyrianPurple;
     display: flex;
     justify-content: center;
     align-items: center;

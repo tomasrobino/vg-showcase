@@ -136,7 +136,7 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}
                 sx={{
                     width: 900,
                     height: 1,
-                    backgroundColor: "red"
+                    backgroundColor: "secondary.main"
                 }}
             >
                 <div className={styles.displayMain}>

@@ -21,16 +21,16 @@ export default function SearchBar() {
     }
 
     return (
-        <TextField className='search-bar'
+        <TextField
             label="Search"
             type="text"
             size='small'
             autoComplete='off'
+            sx={{
+                width: 500
+            }}
             onChange={handleChange}
             onKeyUp={handleEnter}
-            sx={{
-                width: 500,
-            }}
             InputProps={{
                 endAdornment: (
                     <SearchRoundedIcon></SearchRoundedIcon>

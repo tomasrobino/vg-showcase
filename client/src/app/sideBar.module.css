@@ -1,6 +1,6 @@
 .sideBar {
     width: 250px;
-    background-color: yellow;
+    background-color: #385f71;
     display: flex;
     flex-flow: row wrap;
     padding-left: 10px;

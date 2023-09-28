@@ -9,6 +9,9 @@ export default function TopButton(props: {text: string, url: string, linkTo: str
     return (
         <Button
             onClick={() => {router.replace(props.url+props.linkTo)}}
+            sx={{
+                color: "text.primary"
+            }}
         >
             {props.text}
         </Button>

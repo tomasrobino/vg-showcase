@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Card } from "@mui/material"
+import { Box, Card, Typography } from "@mui/material"
 import styles from "./largeDisplay.module.css"
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import { Dispatch, SetStateAction, useState } from "react";
@@ -132,17 +132,19 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}
 
     return(
         <div className={styles.display}>
-            <Box className={styles.arrow} onClick={() => {handleClickPass(0)}}>
-            <ArrowBackIosNewRoundedIcon className={styles.icon}/>
+            <Box className={styles.arrow} onClick={() => {handleClickPass(0)}} sx={{
+                borderRadius: 2,
+                boxShadow: 3
+            }}>
+                <ArrowBackIosNewRoundedIcon className={styles.icon}/>
             </Box>
-            <Card
-                className={styles.displayContent}
-                sx={{
+            <Card className={styles.displayContent} sx={{
                     width: 900,
                     height: 1,
-                    backgroundColor: "secondary.main"
-                }}
-            >
+                    backgroundColor: "secondary.main",
+                    borderRadius: 3,
+                    boxShadow: 5
+            }}>
                 <div className={styles.displayMain}>
                     <Image
                         src={shownImg}
@@ -153,7 +155,10 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}
                 </div>
                 <div className={styles.displaySecondary}>
                     <div className={styles.displayTitle}>
-                        <p>{props.toDisplayInfo[currentItem].name}</p>
+                        <Typography sx={{
+                            fontSize: 20,
+                            fontWeight: 540
+                        }}>{props.toDisplayInfo[currentItem].name}</Typography>
                     </div>
                     <div className={styles.displayOtherImgs}>
                         {secImgsArray}
@@ -163,7 +168,10 @@ export default function LargeDisplay(props: {toDisplayInfo: Array<gameResponse>}
                     </div>
                 </div>
             </Card>
-            <Box className={styles.arrow} onClick={() => {handleClickPass(1)}}>
+            <Box className={styles.arrow} onClick={() => {handleClickPass(1)}} sx={{
+                borderRadius: 2,
+                boxShadow: 3
+            }}>
                 <ArrowBackIosNewRoundedIcon className={`${styles.icon} ${styles.rightIcon}`}/>
             </Box>
             <div className={styles.carousel}>

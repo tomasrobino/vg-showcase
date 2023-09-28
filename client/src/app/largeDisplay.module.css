@@ -32,8 +32,6 @@
 }
 
 .displayOtherImgs {
-    width: 100%;
-    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +39,10 @@
 }
 
 .secImg {
+    margin: 5px;
+    border: 4px;
+    border-color: tyrianPurple;
+    border-style: solid;
 }
 
 .displayOtherInfo {

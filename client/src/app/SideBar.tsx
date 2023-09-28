@@ -21,7 +21,9 @@ export default function SideBar() {
 
     return (
         <div className={styles.sideBar}>
-            <Typography className={styles.title}>New Releases</Typography>
+            <Typography className={styles.title} sx={{
+                fontSize: 20
+            }}>New Releases</Typography>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {
                     const today = new Date();
@@ -40,7 +42,9 @@ export default function SideBar() {
                 }}>Next week</Button>
             </div>
 
-            <Typography className={styles.title}>Top</Typography>
+            <Typography className={styles.title} sx={{
+                fontSize: 20
+            }}>Top</Typography>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {
                     const today = new Date();
@@ -49,7 +53,10 @@ export default function SideBar() {
                 <Button className={styles.element} onClick={() => {handleClick("top/top250")}}>All time top 250</Button>
             </div>
 
-            <Button className={styles.title} onClick={() => {router.push("genres")}}>Genres</Button>
+            <Button className={styles.title} onClick={() => {router.push("genres")}} sx={{
+                fontSize: 20,
+                paddingLeft: 0
+            }}>Genres</Button>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {handleGenre("action")}}>Action</Button>
                 <Button className={styles.element} onClick={() => {handleGenre("strategy")}}>Strategy</Button>
@@ -61,7 +68,10 @@ export default function SideBar() {
                 <Button className={styles.element} onClick={() => {handleGenre("sports")}}>Sports</Button>
             </div>
 
-            <Button className={styles.title} onClick={() => {router.push("platforms?page=1")}}>Platforms</Button>
+            <Button className={styles.title} onClick={() => {router.push("platforms?page=1")}} sx={{
+                fontSize: 20,
+                paddingLeft: 0
+            }}>Platforms</Button>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {handlePlatform("4")}}>PC</Button>
                 <Button className={styles.element} onClick={() => {handlePlatform("187")}}>PlayStation 5</Button>

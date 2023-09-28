@@ -1,6 +1,9 @@
+@value powderBlue, tyrianPurple from "./colors.module.css";
+
 .sideBar {
+    padding-top: 20px;
     width: 250px;
-    background-color: #385f71;
+    background-color: powderBlue;
     display: flex;
     flex-flow: row wrap;
     padding-left: 10px;
@@ -14,14 +17,13 @@
   
 .element {
     width: 100%;
-    justify-content: start;
-    padding-left: 10px;
 }
 
 .title {
     padding-left: 0;
     width: 100%;
     justify-content: start;
+    color: tyrianPurple;
 }
   
 .desplegable {

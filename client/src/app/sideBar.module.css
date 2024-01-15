@@ -1,12 +1,14 @@
 @value powderBlue, tyrianPurple from "./colors.module.css";
 
 .sideBar {
+    border-radius: 10px;
+    height: fit-content;
     padding-top: 20px;
     width: 250px;
     background-color: powderBlue;
-    display: flex;
-    flex-flow: row wrap;
     padding-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
 }
   
 .group {

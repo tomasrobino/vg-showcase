@@ -26,18 +26,18 @@ export default function SideBar() {
             }}>New Releases</Typography>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {
-                    const today = new Date();
-                    const monthAgo = new Date(today.getTime() - 2629800000);
+                    let today = new Date();
+                    let monthAgo = new Date(today.getTime() - 2629800000);
                     router.push(`results?page=1&dates=${monthAgo.getFullYear()}-${("0"+(monthAgo.getMonth()+1)).slice(-2)}-${("0"+monthAgo.getDate()).slice(-2)},${today.getFullYear()}-${("0"+(today.getMonth()+1)).slice(-2)}-${("0"+today.getDate()).slice(-2)}&ordering=released`);
                 }}>Last 30 Days</Button>
                 <Button className={styles.element} onClick={() => {
-                    const today = new Date();
-                    const weekAgo = new Date(today.getTime() - 604800000);
+                    let today = new Date();
+                    let weekAgo = new Date(today.getTime() - 604800000);
                     router.push(`results?page=1&dates=${weekAgo.getFullYear()}-${("0"+(weekAgo.getMonth()+1)).slice(-2)}-${("0"+weekAgo.getDate()).slice(-2)},${today.getFullYear()}-${("0"+(today.getMonth()+1)).slice(-2)}-${("0"+today.getDate()).slice(-2)}&ordering=released`);
                 }}>This week</Button>
                 <Button className={styles.element} onClick={() => {
-                    const today = new Date();
-                    const nextWeek = new Date(today.getTime() + 604800000);
+                    let today = new Date();
+                    let nextWeek = new Date(today.getTime() + 604800000);
                     router.push(`results?page=1&dates=${today.getFullYear()}-${("0"+(today.getMonth()+1)).slice(-2)}-${("0"+today.getDate()).slice(-2)},${nextWeek.getFullYear()}-${("0"+(nextWeek.getMonth()+1)).slice(-2)}-${("0"+nextWeek.getDate()).slice(-2)}&ordering=released`);
                 }}>Next week</Button>
             </div>
@@ -47,7 +47,7 @@ export default function SideBar() {
             }}>Top</Typography>
             <div className={styles.group}>
                 <Button className={styles.element} onClick={() => {
-                    const today = new Date();
+                    let today = new Date();
                     router.push(`results?page=1&dates=${today.getFullYear()}-01-01,${today.getFullYear()}-${("0"+(today.getMonth()+1)).slice(-2)}-${("0"+today.getDate()).slice(-2)}&ordering=released`);
                 }}>Best of the year</Button>
                 <Button className={styles.element} onClick={() => {handleClick("top/top250")}}>All time top 250</Button>

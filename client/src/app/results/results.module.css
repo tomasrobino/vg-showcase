@@ -5,3 +5,9 @@
     row-gap: 20px;
     column-gap: 20px;
 }
+
+.card:hover {
+    transform: scaleY(1.3) scale(1.1);
+    transform-origin: top;
+    z-index: 100;
+}

@@ -4,6 +4,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/m
 import { gameResponse } from "../types"
 import { useRouter } from "next/navigation";
 import React from "react";
+import styles from "./results.module.css"
 
 
 export default function Results(props: {results: gameResponse[]}) {
@@ -15,6 +16,7 @@ export default function Results(props: {results: gameResponse[]}) {
     }
 
     const cards = [];
+    console.log(props.results[0]);
     for (let i = 0; i < props.results.length; i++) {
         let imageToDisplay
 
@@ -31,8 +33,10 @@ export default function Results(props: {results: gameResponse[]}) {
             imageToDisplay = <Typography>No image</Typography>
         }
 
+        let platforms: Array<String> = props.results[i].platforms.map(e => e.platform.name);
+
         cards.push(
-            <Card key={"card"+i}>
+            <Card key={"card"+i} className={styles.card}>
                 <CardActionArea
                     onClick={() => handleClick(props.results[i].slug)}
                 >

@@ -3,7 +3,7 @@ import createTheme from "@mui/material/styles/createTheme";
 const tyrianPurple = "#510129";
 const paynesGray = "#385F71";
 const powderBlue = "#A1B5D8";
-const indigoDye = "2B4162";
+const indigoDye = "#2B4162";
 
 
 const theme = createTheme({
@@ -17,7 +17,7 @@ const theme = createTheme({
             dark: indigoDye
         },
         text: {
-            primary: powderBlue,
+            primary: tyrianPurple,
             secondary: powderBlue
         }
     },

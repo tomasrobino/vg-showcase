@@ -25,7 +25,7 @@ export type gameResponse = AxiosResponse<any, any> & {
     id:                 number;
     slug:               string;
     name:               string;
-    released:           Date;
+    released:           string;
     tba:                boolean;
     background_image:   string;
     rating:             number;

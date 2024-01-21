@@ -1,6 +1,6 @@
 "use client"
 
-import { InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useCallback, useState } from "react";
 
@@ -35,9 +35,7 @@ export default function FilterBar() {
             <Select
                 onChange={handleSelection}
                 value={ordering}
-                label="Sort by"
             >
-                
                 <MenuItem value="-released">Newest</MenuItem>
                 <MenuItem value="released">Oldest</MenuItem>
                 <MenuItem value="-rating">Rating</MenuItem>

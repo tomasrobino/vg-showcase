@@ -31,7 +31,7 @@ export default function Results(props: {results: gameResponse[]}) {
                     image={props.results[i].background_image}
                 />
         } else {
-            imageToDisplay = <Typography>No image</Typography>
+            imageToDisplay = <div style={{ width: "100%", height: "200px", backgroundColor: "black" }}></div>
         }
 
         let platforms: Array<String> = [];

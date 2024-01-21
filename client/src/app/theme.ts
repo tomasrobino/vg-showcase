@@ -7,6 +7,16 @@ const indigoDye = "#2B4162";
 
 
 const theme = createTheme({
+    components: {
+        MuiSelect: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: powderBlue,
+                    borderRadius: "10px"
+                }
+            }
+        }
+    },
     palette: {
         primary: {
             main: tyrianPurple

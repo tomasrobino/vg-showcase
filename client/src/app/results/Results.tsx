@@ -12,7 +12,6 @@ export default function Results(props: {results: gameResponse[]}) {
     const router = useRouter();
 
     function handleClick(slug: string) {
-
         router.replace("../game/"+slug);
     }
 
@@ -36,10 +35,13 @@ export default function Results(props: {results: gameResponse[]}) {
         }
 
         let platforms: Array<String> = props.results[i].platforms.map(e => e.platform.name);
-        while (platforms.length > 5) {
-            platforms.pop();
+
+        if (platforms.length > 5) {
+            while (platforms.length > 5) {
+                platforms.pop();
+            }
+            platforms.push("etc.")
         }
-        platforms.push("etc.")
 
         let released;
         let date;
@@ -60,9 +62,18 @@ export default function Results(props: {results: gameResponse[]}) {
             }}>
                 <CardActionArea
                     onClick={() => handleClick(props.results[i].slug)}
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "flex-start",
+                        alignItems: "start",
+                        height: "500px"
+                    }}
                 >
                     {imageToDisplay}
-                    <CardContent>
+                    <CardContent style={{
+                        width: "100%"
+                    }}>
                         <Typography sx={{
                             fontSize: "25px",
                             fontWeight: "bold",

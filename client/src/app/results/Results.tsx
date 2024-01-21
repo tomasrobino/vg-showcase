@@ -34,7 +34,11 @@ export default function Results(props: {results: gameResponse[]}) {
             imageToDisplay = <Typography>No image</Typography>
         }
 
-        let platforms: Array<String> = props.results[i].platforms.map(e => e.platform.name);
+        let platforms: Array<String> = [];
+        if (props.results[i].platforms !== null) {
+            platforms = props.results[i].platforms.map(e => e.platform.name);
+        } else platforms.push("Unknown");
+        
 
         if (platforms.length > 5) {
             while (platforms.length > 5) {

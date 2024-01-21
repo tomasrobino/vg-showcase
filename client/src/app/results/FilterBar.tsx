@@ -38,8 +38,8 @@ export default function FilterBar() {
                 label="Sort by"
             >
                 
-                <MenuItem value="released">Newest</MenuItem>
-                <MenuItem value="-released">Oldest</MenuItem>
+                <MenuItem value="-released">Newest</MenuItem>
+                <MenuItem value="released">Oldest</MenuItem>
                 <MenuItem value="-rating">Rating</MenuItem>
                 <MenuItem value="name">Name</MenuItem>
                 <MenuItem value="-relevance">Relevance</MenuItem>

@@ -15,6 +15,14 @@ const theme = createTheme({
                     borderRadius: "10px"
                 }
             }
+        },
+        MuiPaper: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: powderBlue,
+                    borderRadius: "10px"
+                }
+            }
         }
     },
     palette: {

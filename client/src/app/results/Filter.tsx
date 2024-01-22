@@ -31,8 +31,8 @@ export default function Filter(props: {items: Array<Array<string>>, concept: str
 
     let items: Array<React.JSX.Element> = [];
 
-    props.items.forEach(e => {
-        items.push( <MenuItem value={e[0]}>{e[1]}</MenuItem> );
+    props.items.forEach((e, i) => {
+        items.push( <MenuItem value={e[0]} key={i}>{e[1]}</MenuItem> );
     })
 
     return(

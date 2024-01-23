@@ -3,9 +3,10 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
 import { gameResponse } from "../types"
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./results.module.css"
 import theme from "../theme";
+import CardImage from "./CardImage";
 
 
 export default function Results(props: {results: gameResponse[]}) {
@@ -15,24 +16,14 @@ export default function Results(props: {results: gameResponse[]}) {
         router.replace("../game/"+slug);
     }
 
+    function handleMouseEnter() {
+        //setShownImg(0);
+    }
+
     const cards = [];
-    //console.log(props.results[0]);
+    console.log(props.results[0].short_screenshots);
     for (let i = 0; i < props.results.length; i++) {
-        let imageToDisplay
-
-        if(props.results[i].background_image !== null) {
-            imageToDisplay = 
-                <CardMedia
-
-                    style={{
-                        width: "100%",
-                        height: "200px"
-                    }}
-                    image={props.results[i].background_image}
-                />
-        } else {
-            imageToDisplay = <div style={{ width: "100%", height: "200px", backgroundColor: "black" }}></div>
-        }
+        let screenshots = props.results[i].short_screenshots.map(e => e.image);
 
         let platforms: Array<String> = [];
         if (props.results[i].platforms !== null) {
@@ -64,17 +55,23 @@ export default function Results(props: {results: gameResponse[]}) {
             <Card key={"card"+i} className={styles.card} sx={{
                 backgroundColor: "secondary.light"
             }}>
+                {props.results[i].short_screenshots.length !== 0 ?
+                    <CardImage screenshots={props.results[i].short_screenshots}/>
+                    :
+                    <div style={{ width: "100%", height: "200px", backgroundColor: "black" }}></div>
+                }
+
                 <CardActionArea
                     onClick={() => handleClick(props.results[i].slug)}
+                    onMouseEnter={handleMouseEnter}
                     style={{
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "flex-start",
                         alignItems: "start",
-                        height: "500px"
+                        height: "300px"
                     }}
                 >
-                    {imageToDisplay}
                     <CardContent style={{
                         width: "100%"
                     }}>

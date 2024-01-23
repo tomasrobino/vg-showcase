@@ -1,9 +1,9 @@
 "use client"
 
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material"
+import { Card, CardActionArea, CardContent, Typography } from "@mui/material"
 import { gameResponse } from "../types"
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./results.module.css"
 import theme from "../theme";
 import CardImage from "./CardImage";
@@ -16,12 +16,8 @@ export default function Results(props: {results: gameResponse[]}) {
         router.replace("../game/"+slug);
     }
 
-    function handleMouseEnter() {
-        //setShownImg(0);
-    }
-
     const cards = [];
-    console.log(props.results[0].short_screenshots);
+    //console.log(props.results[0].short_screenshots);
     for (let i = 0; i < props.results.length; i++) {
         let screenshots = props.results[i].short_screenshots.map(e => e.image);
 
@@ -63,7 +59,6 @@ export default function Results(props: {results: gameResponse[]}) {
 
                 <CardActionArea
                     onClick={() => handleClick(props.results[i].slug)}
-                    onMouseEnter={handleMouseEnter}
                     style={{
                         display: "flex",
                         flexDirection: "column",

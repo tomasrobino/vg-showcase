@@ -37,14 +37,6 @@ export default function PagePasser(props: {next: string, prev: string}) {
         }
     }, [props.prev, props.next]);
 
-    /*
-    if (props.ifSearch === "") {
-        var aux: string = "page="
-    } else {
-        var aux: string = props.ifSearch+"&page="
-    }
-    */
-
     function generalPass() {
         let paramsToUse = params.toString();
         let aux = paramsToUse.indexOf("&", 6);
@@ -65,19 +57,38 @@ export default function PagePasser(props: {next: string, prev: string}) {
         router.push(`${pathname}?${gen.paramsToUse.replace(gen.substring, (parseInt(gen.substring) + 1).toString())}`);
     }
 
-    
 
     return(
-        <div style={{ width: "fit-content" }}>
+        <div style={{ width: "fit-content", margin: "30px" }}>
             <Button
                 onClick={goBackPage}
                 disabled={backDisabled}
+                variant="contained"
+                sx={{
+                    color: "text.secondary"
+                }}
+                style={{
+                    width: "150px",
+                    height: "50px",
+                    marginRight: "10px",
+                    justifyContent: "center"
+                }}
             >
                 Previous Page
             </Button>
             <Button
                 onClick={passPage}
                 disabled={nextDisabled}
+                variant="contained"
+                sx={{
+                    color: "text.secondary"
+                }}
+                style={{
+                    width: "150px",
+                    height: "50px",
+                    marginLeft: "10px",
+                    justifyContent: "center"
+                }}
             >
                 Next Page
             </Button>

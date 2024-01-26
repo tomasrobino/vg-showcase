@@ -40,6 +40,9 @@ export default function RootLayout({
                         <SideBar/>
                         {children}
                     </div>
+                    <div style={{ backgroundColor: "red", width: "100%", height: "400px" }}>
+
+                    </div>
                 </body>
             </ThemeRegistry>
         </html>

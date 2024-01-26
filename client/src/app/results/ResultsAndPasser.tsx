@@ -7,13 +7,16 @@ import styles from "./results.module.css"
 export default function ResultsAndPasser(props: {response: any}) {
     return(
         <div style={{
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center"
         }}>
-            <Suspense>
-                <FilterBar/>
-            </Suspense>
+            <div style={{ width: "940px" }}>
+                <Suspense>
+                        <FilterBar/>
+                </Suspense>
+            </div>
             <div className={styles.results}>
                 <Results {...{results: props.response.results}}/>
             </div>

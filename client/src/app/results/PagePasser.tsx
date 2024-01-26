@@ -68,7 +68,7 @@ export default function PagePasser(props: {next: string, prev: string}) {
     
 
     return(
-        <div>
+        <div style={{ width: "fit-content" }}>
             <Button
                 onClick={goBackPage}
                 disabled={backDisabled}

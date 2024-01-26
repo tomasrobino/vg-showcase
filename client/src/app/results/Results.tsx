@@ -49,7 +49,8 @@ export default function Results(props: {results: gameResponse[]}) {
 
         cards.push(
             <Card key={"card"+i} className={styles.card} sx={{
-                backgroundColor: "secondary.light"
+                backgroundColor: "secondary.light",
+                boxShadow: 10
             }}>
                 {props.results[i].short_screenshots.length !== 0 ?
                     <CardImage screenshots={props.results[i].short_screenshots}/>

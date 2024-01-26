@@ -7,7 +7,7 @@ export default function FilterBar() {
     return (
         <div style={{
             marginTop: "10px",
-            width: "100%"
+            width: "fit-content"
         }}>
             <Filter {...{concept: "ordering", default: "-relevance", items: [
                 ["-released", "Newest"],

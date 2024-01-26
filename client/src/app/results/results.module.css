@@ -5,6 +5,7 @@
     grid-auto-rows: 300px;
     row-gap: 20px;
     column-gap: 20px;
+    width: fit-content;
 }
 
 .card {
